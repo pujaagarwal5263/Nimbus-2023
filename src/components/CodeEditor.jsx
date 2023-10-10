@@ -4,7 +4,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { okaidia } from '@uiw/codemirror-theme-okaidia';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+import { Button } from "@chakra-ui/react";
 
 const extensions = [javascript({ jsx: true })];
 
@@ -32,29 +32,48 @@ const CodeEditor = () => {
         setCode(e)
     }
     const getOutput = async() =>{
+      try{
         const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/execute`,{
-            code: code
+            code: code,
+            codeId: id
         })
-        setTestCases([response.data.passOrFail])
+       // console.log(response.data);
+        setTestCases(response.data.testResults)
+        console.log(testCases);
+      }catch(err){
+        console.log(err);
+      }
     }
 
   return (
     <>
     {testCases?.map((testCase,i)=>{
-        return <div key={i}>
-            <div>{testCase== 'True' ? "✅ successss" : "❌ faillll"}</div>
+        return <div key={i} >
+            <div >{testCase== true ? "✅ Test Case Passed" : "❌ Test Case Failed"}</div>
             </div>
     })}
+    <div style={{display:"flex", gap:"30px"}}>
     <CodeMirror
       value={code}
-      height="50vh"
-      width='50vh'
+      height="80vh"
+      width='80vh'
       theme={okaidia}
       extensions={[javascript({ jsx: true })]}
       onChange={handleChange}
     />
-    {codeDetails ? <p>{codeDetails.question}</p> : <></>}
-    <button onClick={getOutput}>Get Output</button>
+    <div>
+    {codeDetails ? <div>
+     <h3> {codeDetails.question} </h3>
+     <div>{codeDetails.description}</div>
+     <br/>
+     <div style={{backgroundColor:"lightgray", padding:"10px", borderRadius:"2px"}}>
+     <div>Inputs: {codeDetails.input}</div>
+     <div>Sample Output: {codeDetails.output}</div>
+     </div>
+    </div> : <></>}
+    </div>
+    </div>
+    <Button onClick={getOutput}>Get Output</Button>
     </>
   )
 }

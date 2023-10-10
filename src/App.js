@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Routes, BrowserRouter, Route } from 'react-router-dom';
 import CodeEditor from './components/CodeEditor';
 import AllCodes from './components/AllCodes';
+import LandingPage from './components/LandingPage';
 
 function App() {
 

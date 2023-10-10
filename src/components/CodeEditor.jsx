@@ -4,7 +4,7 @@ import { javascript } from '@codemirror/lang-javascript';
 import { okaidia } from '@uiw/codemirror-theme-okaidia';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+import { Button } from "@chakra-ui/react";
 
 const extensions = [javascript({ jsx: true })];
 
@@ -32,6 +32,7 @@ const CodeEditor = () => {
         setCode(e)
     }
     const getOutput = async() =>{
+      try{
         const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/execute`,{
             code: code,
             codeId: id
@@ -39,6 +40,9 @@ const CodeEditor = () => {
        // console.log(response.data);
         setTestCases(response.data.testResults)
         console.log(testCases);
+      }catch(err){
+        console.log(err);
+      }
     }
 
   return (
@@ -69,7 +73,7 @@ const CodeEditor = () => {
     </div> : <></>}
     </div>
     </div>
-    <button onClick={getOutput}>Get Output</button>
+    <Button onClick={getOutput}>Get Output</Button>
     </>
   )
 }

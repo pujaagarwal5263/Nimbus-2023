@@ -32,6 +32,7 @@ const CodeEditor = () => {
         setCode(e)
     }
     const getOutput = async() =>{
+      try{
         const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/execute`,{
             code: code,
             codeId: id
@@ -39,6 +40,9 @@ const CodeEditor = () => {
        // console.log(response.data);
         setTestCases(response.data.testResults)
         console.log(testCases);
+      }catch(err){
+        console.log(err);
+      }
     }
 
   return (

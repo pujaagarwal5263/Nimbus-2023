@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Tabs, TabList, TabPanels, Tab, TabPanel, Button } from "@chakra-ui/react";
 
 const AllCodes = () => {
   const [codeArray, setCodeArray] = useState([]);
@@ -20,16 +21,57 @@ const AllCodes = () => {
   return (
     <div>
       <h2>All Codes</h2>
-      <ul>
-        {codeArray.map((codeData) => (
-          <li key={codeData._id}>
-            <h3>Question: {codeData.question}</h3>
-            <Link to={`/code/${codeData._id}`}>
-              <button>Open</button>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <Tabs>
+        <TabList>
+          <Tab>Numbers</Tab>
+          <Tab>Arrays</Tab>
+          <Tab>Linked Lists</Tab>
+        </TabList>
+
+        <TabPanels>
+          <TabPanel>
+            <ul>
+              {codeArray.map(
+                (codeData) =>
+                  // Check if codeData.label is equal to "numbers" before rendering
+                  codeData.label === "numbers" && (
+                    <li key={codeData._id}>
+                      <h3>Question: {codeData.question}</h3>
+                      
+                      <Link to={`/code/${codeData._id}`}>
+                        <Button>Open</Button>
+                      </Link>
+                    </li>
+                  )
+              )}
+              <br/>
+              more questions coming soon..
+            </ul>
+          </TabPanel>
+          <TabPanel>
+            <ul>
+              {codeArray.map(
+                (codeData) =>
+                  // Check if codeData.label is equal to "numbers" before rendering
+                  codeData.label === "arrays" && (
+                    <li key={codeData._id}>
+                      <h3>Question: {codeData.question}</h3>
+                      
+                      <Link to={`/code/${codeData._id}`}>
+                        <Button>Open</Button>
+                      </Link>
+                    </li>
+                  )
+              )}
+               <br/>
+              more questions coming soon..
+            </ul>
+          </TabPanel>
+          <TabPanel>
+            Coming Sooon...
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
     </div>
   );
 };

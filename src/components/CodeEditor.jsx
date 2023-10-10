@@ -33,27 +33,42 @@ const CodeEditor = () => {
     }
     const getOutput = async() =>{
         const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/execute`,{
-            code: code
+            code: code,
+            codeId: id
         })
-        setTestCases([response.data.passOrFail])
+       // console.log(response.data);
+        setTestCases(response.data.testResults)
+        console.log(testCases);
     }
 
   return (
     <>
     {testCases?.map((testCase,i)=>{
-        return <div key={i}>
-            <div>{testCase== 'True' ? "✅ successss" : "❌ faillll"}</div>
+        return <div key={i} >
+            <div >{testCase== true ? "✅ Test Case Passed" : "❌ Test Case Failed"}</div>
             </div>
     })}
+    <div style={{display:"flex", gap:"30px"}}>
     <CodeMirror
       value={code}
-      height="50vh"
-      width='50vh'
+      height="80vh"
+      width='80vh'
       theme={okaidia}
       extensions={[javascript({ jsx: true })]}
       onChange={handleChange}
     />
-    {codeDetails ? <p>{codeDetails.question}</p> : <></>}
+    <div>
+    {codeDetails ? <div>
+     <h3> {codeDetails.question} </h3>
+     <div>{codeDetails.description}</div>
+     <br/>
+     <div style={{backgroundColor:"lightgray", padding:"10px", borderRadius:"2px"}}>
+     <div>Inputs: {codeDetails.input}</div>
+     <div>Sample Output: {codeDetails.output}</div>
+     </div>
+    </div> : <></>}
+    </div>
+    </div>
     <button onClick={getOutput}>Get Output</button>
     </>
   )

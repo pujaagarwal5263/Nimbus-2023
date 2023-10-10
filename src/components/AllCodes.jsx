@@ -19,8 +19,8 @@ const AllCodes = () => {
   }, []);
 
   return (
-    <div>
-      <h2>All Codes</h2>
+    <div style={{margin:"19px"}}>
+      <h2>My Dashboard</h2>
       <Tabs>
         <TabList>
           <Tab>Numbers</Tab>
@@ -30,13 +30,13 @@ const AllCodes = () => {
 
         <TabPanels>
           <TabPanel>
-            <ul>
+            <ol>
               {codeArray.map(
                 (codeData) =>
                   // Check if codeData.label is equal to "numbers" before rendering
                   codeData.label === "numbers" && (
                     <li key={codeData._id}>
-                      <h3>Question: {codeData.question}</h3>
+                      <h3> {codeData.question}</h3>
                       
                       <Link to={`/code/${codeData._id}`}>
                         <Button>Open</Button>
@@ -46,16 +46,16 @@ const AllCodes = () => {
               )}
               <br/>
               more questions coming soon..
-            </ul>
+            </ol>
           </TabPanel>
           <TabPanel>
-            <ul>
+            <ol>
               {codeArray.map(
                 (codeData) =>
                   // Check if codeData.label is equal to "numbers" before rendering
                   codeData.label === "arrays" && (
                     <li key={codeData._id}>
-                      <h3>Question: {codeData.question}</h3>
+                      <h3> {codeData.question}</h3>
                       
                       <Link to={`/code/${codeData._id}`}>
                         <Button>Open</Button>
@@ -65,7 +65,7 @@ const AllCodes = () => {
               )}
                <br/>
               more questions coming soon..
-            </ul>
+            </ol>
           </TabPanel>
           <TabPanel>
             Coming Sooon...

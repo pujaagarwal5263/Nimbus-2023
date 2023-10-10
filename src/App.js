@@ -3,7 +3,7 @@ import { Routes, BrowserRouter, Route } from 'react-router-dom';
 import { ChakraProvider, CheckboxGroup } from "@chakra-ui/react";
 import CodeEditor from './components/CodeEditor';
 import AllCodes from './components/AllCodes';
-import LandingPage from './components/LoginSignUp';
+import LandingPage from './components/Landing';
 
 function App() {
 

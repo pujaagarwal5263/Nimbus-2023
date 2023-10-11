@@ -249,7 +249,7 @@ const CodeEditor = () => {
                 ) : show ? (
                   <div style={{ padding: "10px", borderRadius: "2px" }}>
                     <p style={{ color: "red", fontWeight: "bold" }}>
-                      Not Enough Credits
+                      Oops! Seems like you are out of credits 🥴
                     </p>
                     <Button
                       onClick={handlePayment}

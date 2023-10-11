@@ -2,9 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Tabs, TabList, TabPanels, Tab, TabPanel, Button } from "@chakra-ui/react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const AllCodes = () => {
   const [codeArray, setCodeArray] = useState([]);
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
   const fetchCodes = async () => {
     const res = await axios.get(

@@ -1,4 +1,5 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import {
   Box,
   Center,
@@ -11,9 +12,25 @@ import {
   GridItem,
   Flex
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const LandingPage = () => {
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
+
+  const navigate = useNavigate();
+
+
+
+  const handleAuth = async () => {
+    await loginWithRedirect();
+  };
+
+  React.useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/home");
+    }
+  }, [isAuthenticated, navigate]);
   return (
     <Box bg="gray.100" minH="100vh">
        <Flex
@@ -51,8 +68,9 @@ const LandingPage = () => {
                   mr="4"
                   px="8"
                   _hover={{ bg: "blue.600" }}
+                  onClick={handleAuth}
                 >
-                  Login with Auth0
+                  Login 
                 </Button>
            
             </GridItem>

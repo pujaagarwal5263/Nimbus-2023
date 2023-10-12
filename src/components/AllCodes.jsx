@@ -127,7 +127,7 @@ const AllCodes = () => {
                     </Box>
                   )
               )}
-              <br />
+             
               more questions coming soon..
             </ol>
           </TabPanel>

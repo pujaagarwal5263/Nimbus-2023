@@ -50,8 +50,11 @@ const AllCodes = () => {
   };
 
   useEffect(() => {
-    saveUser();
-    fetchCodes();
+    const fetchData = async () => {
+    await saveUser();
+    await fetchCodes();
+    }
+    fetchData();
   }, []);
 
   return (

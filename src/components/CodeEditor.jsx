@@ -62,7 +62,7 @@ const CodeEditor = () => {
       );
       // console.log(response.data);
       setTestCases(response.data.testResults);
-      setShow(true);
+      //setShow(true);
       //console.log(testCases);
     } catch (err) {
       console.log(err);

@@ -57,6 +57,13 @@ const AllCodes = () => {
     fetchData();
   }, []);
 
+   // Calculate the number of solved questions for each tab
+   const solvedQuestionsNumbers = {
+    Numbers: codeArray.filter((codeData) => codeData.label === "numbers" && codeData.stars !== -1).length,
+    Arrays: codeArray.filter((codeData) => codeData.label === "arrays" && codeData.stars !== -1).length,
+    LinkedLists: codeArray.filter((codeData) => codeData.label === "linked_lists" && codeData.stars !== -1).length,
+  };
+
   return (
     <Box marginX={20} marginTop={10}>
       <div
@@ -92,11 +99,17 @@ const AllCodes = () => {
       {/* <h2>My Dashboard</h2> */}
       <Tabs>
         
-        <TabList>
-        <Tab _selected={{ color: "white", bg: "black" }}>Numbers</Tab>
-        <Tab _selected={{ color: "white", bg: "black" }}>Arrays</Tab>
-        <Tab _selected={{ color: "white", bg: "black" }}>Linked Lists</Tab>
-      </TabList>
+      <TabList>
+          <Tab _selected={{ color: "white", bg: "black" }}>
+            Numbers ({solvedQuestionsNumbers.Numbers}/{codeArray.filter((codeData) => codeData.label === "numbers").length})
+          </Tab>
+          <Tab _selected={{ color: "white", bg: "black" }}>
+            Arrays ({solvedQuestionsNumbers.Arrays}/{codeArray.filter((codeData) => codeData.label === "arrays").length})
+          </Tab>
+          <Tab _selected={{ color: "white", bg: "black" }}>
+            Linked Lists ({solvedQuestionsNumbers.LinkedLists}/{codeArray.filter((codeData) => codeData.label === "linked_lists").length})
+          </Tab>
+        </TabList>
 
         <TabPanels>
           <TabPanel>

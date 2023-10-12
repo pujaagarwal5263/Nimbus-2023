@@ -102,15 +102,15 @@ const AllCodes = () => {
       <TabList>
           <Tab _selected={{ color: "white", bg: "black" }}>
             Numbers
-            {/* Numbers ({solvedQuestionsNumbers.Numbers}/{codeArray.filter((codeData) => codeData.label === "numbers").length}) */}
+            Numbers ({solvedQuestionsNumbers.Numbers}/{codeArray.filter((codeData) => codeData.label === "numbers").length})
           </Tab>
           <Tab _selected={{ color: "white", bg: "black" }}>
             Arrays
-            {/* Arrays ({solvedQuestionsNumbers.Arrays}/{codeArray.filter((codeData) => codeData.label === "arrays").length}) */}
+            Arrays ({solvedQuestionsNumbers.Arrays}/{codeArray.filter((codeData) => codeData.label === "arrays").length})
           </Tab>
           <Tab _selected={{ color: "white", bg: "black" }}>
             Linked Lists
-            {/* Linked Lists ({solvedQuestionsNumbers.LinkedLists}/{codeArray.filter((codeData) => codeData.label === "linked_lists").length}) */}
+            Linked Lists ({solvedQuestionsNumbers.LinkedLists}/{codeArray.filter((codeData) => codeData.label === "linked_lists").length})
           </Tab>
         </TabList>
 

@@ -254,7 +254,7 @@ const CodeEditor = () => {
                     <Button
                       onClick={handlePayment}
                       size="sm"
-                      _hover={{ bg: "black", color: "white" }}
+                      _hover={{ bg: "green", color: "white" }}
                       colorScheme="red"
                     >
                       Buy Credits

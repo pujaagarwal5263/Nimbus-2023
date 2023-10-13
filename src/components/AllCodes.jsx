@@ -54,8 +54,11 @@ const AllCodes = () => {
     await saveUser();
     await fetchCodes();
     }
-    fetchData();
-  }, []);
+    //fetchData();
+    if (!codeArray.length) {
+      fetchData();
+    }
+  }, [codeArray]);
 
    // Calculate the number of solved questions for each tab
    const solvedQuestionsNumbers = {

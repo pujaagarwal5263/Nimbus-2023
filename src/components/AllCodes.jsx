@@ -31,8 +31,6 @@ const AllCodes = () => {
       }
     );
     setCodeArray(res.data);
-    //console.log(res.data);
-    //console.log(codeArray);
   };
 
   const saveUser = async () => {
@@ -45,8 +43,6 @@ const AllCodes = () => {
       }
     );
     localStorage.setItem("email", user.email);
-    // console.log(user.picture);
-    //console.log(res);
   };
 
   useEffect(() => {
@@ -54,13 +50,11 @@ const AllCodes = () => {
     await saveUser();
     await fetchCodes();
     }
-    //fetchData();
     if (!codeArray.length) {
       fetchData();
     }
   }, [codeArray]);
 
-   // Calculate the number of solved questions for each tab
    const solvedQuestionsNumbers = {
     Numbers: codeArray.filter((codeData) => codeData.label === "numbers" && codeData.stars !== -1).length,
     Arrays: codeArray.filter((codeData) => codeData.label === "arrays" && codeData.stars !== -1).length,
@@ -79,7 +73,6 @@ const AllCodes = () => {
           justifyContent: "space-between",
           padding: "10px",
           background: "white",
-          //boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.2)',
           width: "100%",
         }}
       >
@@ -88,10 +81,10 @@ const AllCodes = () => {
             src={user.picture}
             alt={user.name}
             style={{
-              width: "40px", // Set a suitable width and height
+              width: "40px", 
               height: "40px",
               borderRadius: "50%",
-              marginRight: "8px", // Adjust the margin as needed
+              marginRight: "8px", 
             }}
           />
           <Text fontWeight="bold">{user.name}</Text>
@@ -99,20 +92,15 @@ const AllCodes = () => {
         </div>
       </div>
 
-      {/* <h2>My Dashboard</h2> */}
       <Tabs>
-        
       <TabList>
           <Tab _selected={{ color: "white", bg: "black" }}>
-            
             Numbers ({solvedQuestionsNumbers.Numbers}/{codeArray.filter((codeData) => codeData.label === "numbers").length})
           </Tab>
           <Tab _selected={{ color: "white", bg: "black" }}>
-            
             Arrays ({solvedQuestionsNumbers.Arrays}/{codeArray.filter((codeData) => codeData.label === "arrays").length})
           </Tab>
           <Tab _selected={{ color: "white", bg: "black" }}>
-        
             Linked Lists ({solvedQuestionsNumbers.LinkedLists}/{codeArray.filter((codeData) => codeData.label === "linked_lists").length})
           </Tab>
         </TabList>
@@ -122,7 +110,6 @@ const AllCodes = () => {
             <ol>
               {codeArray.map(
                 (codeData) =>
-                  // Check if codeData.label is equal to "numbers" before rendering
                   codeData.label === "numbers" && (
                     <Box
                       key={codeData._id}
@@ -141,8 +128,8 @@ const AllCodes = () => {
                       <Link to={`/code/${codeData._id}`}>
                         <Button
                         _hover={{ bg: "black", color: "white" }}
-                        bgColor="white" // Set background color to black
-                        color="black" // Set text color to white
+                        bgColor="white" 
+                        color="black" 
                         border="1px solid black"
                         >Open</Button>
                       </Link>
@@ -157,7 +144,6 @@ const AllCodes = () => {
             <ol>
               {codeArray.map(
                 (codeData) =>
-                  // Check if codeData.label is equal to "numbers" before rendering
                   codeData.label === "arrays" && (
                     <Box
                       key={codeData._id}
@@ -176,8 +162,8 @@ const AllCodes = () => {
                       <Link to={`/code/${codeData._id}`}>
                         <Button
                          _hover={{ bg: "black", color: "white" }}
-                         bgColor="white" // Set background color to black
-                         color="black" // Set text color to white
+                         bgColor="white" 
+                         color="black" 
                          border="1px solid black"
                          >Open</Button>
                       </Link>

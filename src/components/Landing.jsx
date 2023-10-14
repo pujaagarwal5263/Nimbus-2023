@@ -36,16 +36,14 @@ const LandingPage = () => {
         align="center"
         justify="space-between"
         p="4"
-        bg="transparent" // Set background color to transparent
-        boxShadow="0px 1px 5px rgba(0, 0, 0, 0.1)" // Add box shadow
+        bg="transparent" 
+        boxShadow="0px 1px 5px rgba(0, 0, 0, 0.1)" 
       >
         <Text fontSize="xl" fontWeight="bold" color="black">
           Nimbus 2023 👨‍💻
         </Text>{" "}
-        {/* Change text color to black */}
       </Flex>
 
-      {/* Hero Section */}
       <Center py="10">
         <Container maxW="container.xl">
           <Grid templateColumns="1fr 1fr" gap={10}>
@@ -69,8 +67,8 @@ const LandingPage = () => {
                 px="8"
                 _hover={{ bg: "black", color: "white" }}
                 onClick={handleAuth}
-                bgColor="white" // Set background color to black
-                color="black" // Set text color to white
+                bgColor="white" 
+                color="black" 
                 border="1px solid black"
               >
                 Ready to Ride Nimbus '23 🧙🧹
@@ -78,7 +76,7 @@ const LandingPage = () => {
             </GridItem>
             <GridItem>
               <Image
-                src={CodingIllustration} // Replace with your illustration/image URL
+                src={CodingIllustration} 
                 alt="Coding Illustration"
                 w="50%"
                 borderRadius={5}
@@ -88,14 +86,12 @@ const LandingPage = () => {
         </Container>
       </Center>
 
-      {/* Features Section */}
       <Center py="13">
         <Container maxW="container.lg">
           <Heading as="h2" size="xl" textAlign="center" color="black">
             Key Features
           </Heading>
           <Grid templateColumns="repeat(3, 1fr)" gap={6} mt="10">
-            {/* Feature 1 */}
             <GridItem>
               <Box
                 p="4"
@@ -113,7 +109,6 @@ const LandingPage = () => {
                 </Text>
               </Box>
             </GridItem>
-            {/* Feature 2 */}
             <GridItem>
               <Box
                 p="4"
@@ -130,7 +125,6 @@ const LandingPage = () => {
                 </Text>
               </Box>
             </GridItem>
-            {/* Feature 3 */}
             <GridItem>
               <Box
                 p="4"

@@ -60,10 +60,7 @@ const CodeEditor = () => {
           email: localStorage.getItem("email"),
         }
       );
-      // console.log(response.data);
       setTestCases(response.data.testResults);
-      //setShow(true);
-      //console.log(testCases);
     } catch (err) {
       console.log(err);
     } finally {
@@ -134,26 +131,9 @@ const CodeEditor = () => {
       } else {
         setCredits(false);
       }
-    }, 12000); // 2-second delay in milliseconds
+    }, 12000);
   };
 
-  // const getAIHelp = async() =>{
-  //   const openai = new OpenAI({
-  //     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
-  //     dangerouslyAllowBrowser: true
-  //   });
-
-  //   async function main() {
-  //     const chatCompletion = await openai.chat.completions.create({
-  //       messages: [{ role: 'user', content: `Explain the code for ${codeDetails.question} in python.` }],
-  //       model: 'gpt-3.5-turbo',
-  //     });
-
-  //     console.log(chatCompletion.choices);
-  //   }
-
-  //   main();
-  // }
 
   const getAIHelp = async () => {
     setLoadingAI(true);
@@ -267,8 +247,8 @@ const CodeEditor = () => {
               <Button
                 onClick={getAIHelp}
                 _hover={{ bg: "black", color: "white" }}
-                bgColor="white" // Set background color to black
-                color="black" // Set text color to white
+                bgColor="white" 
+                color="black" 
                 border="1px solid black"
               >
                 Try Nimbus AI ✨
@@ -283,8 +263,8 @@ const CodeEditor = () => {
       <Button
         onClick={getOutput}
         _hover={{ bg: "black", color: "white" }}
-        bgColor="black" // Set background color to black
-        color="white" // Set text color to white
+        bgColor="black" 
+        color="white" 
         
         isLoading={isLoading}
       >
@@ -317,8 +297,8 @@ const CodeEditor = () => {
             <Button
               onClick={() => setShowModal(false)}
               _hover={{ bg: "black", color: "white" }}
-              bgColor="white" // Set background color to black
-              color="black" // Set text color to white
+              bgColor="white" 
+              color="black"
               border="1px solid black"
             >
               Close

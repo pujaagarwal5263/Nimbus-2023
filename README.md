@@ -18,3 +18,5 @@ Run the following commands
 npm i
 npm start
 ```
+
+Check the hosted Nimbus-2023 at: https://nimbus-2023.vercel.app/
